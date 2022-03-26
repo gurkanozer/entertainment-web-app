@@ -1,10 +1,13 @@
 import React from 'react';
 import {HomeContainer} from './style';
-import { Searchbox } from '../../components';
+import { Searchbox, Cards } from '../../components';
 const Home = () => {
   return (
       <HomeContainer>
         <Searchbox/>
+        <Cards>
+          asd
+        </Cards>
       </HomeContainer>
   )
 }

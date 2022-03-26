@@ -19,7 +19,8 @@ const theme = {
   screenSize:{
     sm:"768px",
     md:"992px",
-    lg:"1200px"
+    lg:"1200px",
+    xl:"1400px"
   }
 }
 
@@ -27,7 +28,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
         <GlobalStyle />
-        {/* <Navbar/> */}
+        <Navbar/>
         <Home/>
     </ThemeProvider>
   )

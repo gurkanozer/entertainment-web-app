@@ -1,9 +1,12 @@
 import React from 'react';
-import { SearchInput } from './style';
+import { SearchbarContainer, SearchInput, SearchIcon } from './style';
 
 const Searchbox = () => {
   return (
+    <SearchbarContainer>
+      <SearchIcon/>
       <SearchInput placeholder='Search for movies or TV series' />
+    </SearchbarContainer>
   )
 }
 

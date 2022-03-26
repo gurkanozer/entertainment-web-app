@@ -7,7 +7,7 @@ import TvSeriesIcon from '../../assets/icon-nav-tv-series.svg';
 import {RiUser4Line} from 'react-icons/ri';
 
 export const NavbarContainer = styled.div`
-    position: absolute;
+    position: fixed;
     top:0;
     left:0;
     width:100%;
@@ -19,7 +19,7 @@ export const NavbarContainer = styled.div`
     justify-content: space-between;
     @media (min-width:${({theme})=>theme.screenSize.sm}){
         top:1.438rem;
-        width: calc(100% - 1.438rem);
+        width: calc(100% - 3rem);
         height: 4.5rem;
         left:50%;
         transform: translateX(-50%);
@@ -55,6 +55,8 @@ export const Nav = styled.nav`
     }
     @media (min-width:${({theme})=>theme.screenSize.lg}){
         flex-direction: column;
+        position:absolute;
+        top:8.5rem;
     }
 `
 const NavLink = styled.a`
