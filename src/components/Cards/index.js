@@ -1,10 +1,24 @@
 import React from 'react';
-import { CardsContainer } from './style';
-
-const Cards = ({children}) => {
+import { CardsContainer, CardWrapper } from './style';
+import Card from '../Card';
+const Cards = ({cards}) => {
   return (
       <CardsContainer>
-          {children}
+          <CardWrapper>
+            <Card/>
+          </CardWrapper>
+          <CardWrapper>
+            <Card/>
+          </CardWrapper>
+          <CardWrapper>
+            <Card/>
+          </CardWrapper>
+          <CardWrapper>
+            <Card/>
+          </CardWrapper>
+          <CardWrapper>
+            <Card/>
+          </CardWrapper>
       </CardsContainer>
   )
 }

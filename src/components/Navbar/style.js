@@ -95,12 +95,13 @@ export const ProfileLink = styled.a`
     display:flex;
     align-items: center;
     justify-content: center;
-    color:${({theme})=>theme.color.grayishBlue};
+    color:${({theme})=>theme.color.darkBlue};
+    background:${({theme})=>theme.color.grayishBlue};
     @media (min-width:${({theme})=>theme.screenSize.sm}){
         width:2rem;
         height:2rem;
     }
 `
 export const ProfileIcon = styled(RiUser4Line)`
-color:inherit
+    color:inherit;
 `

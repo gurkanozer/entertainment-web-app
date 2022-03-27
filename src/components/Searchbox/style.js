@@ -22,12 +22,18 @@ export const SearchIcon = styled.span`
     width:1.5rem;
     height:1.5rem;
     margin-right:1rem;
+    @media (min-width:${({theme})=>theme.screenSize.sm}){
+        width:2rem;
+        height:2rem;
+    }
 `
 export const SearchInput = styled.input`
     width:100%;
     height: 1.5rem;
-    line-height: 1.5rem;
+    line-height: 2rem;
     margin: 0 auto;
+    font-family:'Outfit', sans-serif;
+    font-weight: ${({theme})=>theme.fw.light};
     font-size:1rem;
     background: none;
     border:none;
@@ -35,9 +41,10 @@ export const SearchInput = styled.input`
     color:${({theme})=>theme.color.white};
     border-bottom: 1px solid transparent;
     @media (min-width:${({theme})=>theme.screenSize.sm}){
-        height:2rem;
         font-size:1.5rem;
+        padding:1.5rem 0;
     }
+
     &:focus{
         caret-color:${({theme})=>theme.color.red};
         border-bottom: 1px solid ${({theme})=>theme.color.grayishBlue};

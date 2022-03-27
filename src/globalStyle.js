@@ -39,7 +39,8 @@ a {
 h1{
     font-size:clamp(1.125rem, -0.677rem + 1.3vw,2rem);
     font-weight: ${({theme})=>theme.fw.medium};
-    color:${({theme})=>theme.color.text};
+    color:${({theme})=>theme.color.white};
+    font-family:'Outfit', sans-serif;
     @media (min-width:${({theme})=>theme.screenSize.md}){
         font-weight: ${({theme})=>theme.fw.light};
     }
@@ -47,6 +48,7 @@ h1{
 p{
     font-size: 0.813rem;
     font-weight: ${({theme})=>theme.fw.light};
+    font-family:'Outfit', sans-serif;
     @media (min-width:${({theme})=>theme.screenSize.md}){
         font-size:0.938rem;
     }

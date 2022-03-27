@@ -1,12 +1,12 @@
 import React from 'react';
-import {HomeContainer} from './style';
+import {HomeContainer, Title} from './style';
 import { Searchbox, Cards } from '../../components';
 const Home = () => {
   return (
       <HomeContainer>
         <Searchbox/>
+        <Title>Recommended for you</Title>
         <Cards>
-          asd
         </Cards>
       </HomeContainer>
   )
