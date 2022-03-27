@@ -9,7 +9,7 @@ body{
     width:100%;
     height:100%;
     min-height:100vh;
-    background:${({theme})=>theme.color.darkBlue};
+    background:${({ theme }) => theme.color.darkBlue};
 }
 *,*::after,*::before{
     margin:0;
@@ -38,20 +38,23 @@ a {
 }
 h1{
     font-size:clamp(1.125rem, -0.677rem + 1.3vw,2rem);
-    font-weight: ${({theme})=>theme.fw.medium};
-    color:${({theme})=>theme.color.white};
+    font-weight: ${({ theme }) => theme.fw.medium};
+    color:${({ theme }) => theme.color.white};
     font-family:'Outfit', sans-serif;
-    @media (min-width:${({theme})=>theme.screenSize.md}){
-        font-weight: ${({theme})=>theme.fw.light};
+    @media (min-width:${({ theme }) => theme.screenSize.md}){
+        font-weight: ${({ theme }) => theme.fw.light};
     }
 }
 p{
     font-size: 0.813rem;
-    font-weight: ${({theme})=>theme.fw.light};
+    font-weight: ${({ theme }) => theme.fw.light};
     font-family:'Outfit', sans-serif;
-    @media (min-width:${({theme})=>theme.screenSize.md}){
+    @media (min-width:${({ theme }) => theme.screenSize.md}){
         font-size:0.938rem;
     }
 }
-`
+.swiper-slide{
+    width:auto;
+}
+`;
 export default GlobalStyle;

@@ -15,7 +15,7 @@ import {
 } from "./style";
 import TestImage from "../../assets/thumbnails/112/regular/small.jpg";
 import MovieImg from "../../assets/icon-category-movie.svg";
-import PlayImg from '../../assets/icon-play.svg';
+import PlayImg from "../../assets/icon-play.svg";
 // import TvSeriesImg from '../../assets/icon-category-tv.svg';
 
 const index = () => {
