@@ -2,9 +2,9 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./globalStyle";
-import { Navbar } from "./components";
+import { Main } from "./components";
 
-import { Home, Movies, TvSeries, Bookmarked } from "./pages";
+import { Home, Movies, TvSeries, Bookmarked, Login, Register } from "./pages";
 
 const theme = {
   fw: {
@@ -19,6 +19,7 @@ const theme = {
     white: "#FFFFFF",
   },
   screenSize: {
+    xs: "320px",
     sm: "768px",
     md: "992px",
     lg: "1200px",
@@ -30,12 +31,15 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/tvseries" element={<TvSeries />} />
-        <Route path="/bookmarked" element={<Bookmarked />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Register />} />
+        <Route path="/" element={<Main />}>
+          <Route index element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/tvseries" element={<TvSeries />} />
+          <Route path="/bookmarked" element={<Bookmarked />} />
+        </Route>
       </Routes>
     </ThemeProvider>
   );

@@ -49,6 +49,11 @@ export const PlayButton = styled.button`
   justify-content: center;
 `;
 
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 export const ImageContainer = styled.div`
   width: 100%;
   height: 6.875rem;
@@ -61,6 +66,9 @@ export const ImageContainer = styled.div`
     ${PlayButton} {
       opacity: 1;
     }
+    ${Image} {
+      transform: scale(1.05);
+    }
   }
   @media (min-width: ${({ theme }) => theme.screenSize.sm}) {
     height: 8.75rem;
@@ -70,11 +78,6 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
 export const Detail = styled.div``;
 export const List = styled.ul`
   display: flex;
@@ -128,6 +131,8 @@ export const BookmarkButton = styled.button`
   width: 2rem;
   height: 2rem;
   position: absolute;
+  display: grid;
+  place-items: center;
   top: 0.5rem;
   right: 0.5rem;
   z-index: 10;
@@ -135,4 +140,9 @@ export const BookmarkButton = styled.button`
     top: 1rem;
     right: 1rem;
   }
+`;
+export const BookmarkIcon = styled.img`
+  width: 0.8rem;
+  height: 0.8rem;
+  object-fit: cover;
 `;

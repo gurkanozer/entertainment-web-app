@@ -4,21 +4,11 @@ import Card from "../Card";
 const Cards = ({ cards }) => {
   return (
     <CardsContainer>
-      <CardWrapper>
-        <Card />
-      </CardWrapper>
-      <CardWrapper>
-        <Card />
-      </CardWrapper>
-      <CardWrapper>
-        <Card />
-      </CardWrapper>
-      <CardWrapper>
-        <Card />
-      </CardWrapper>
-      <CardWrapper>
-        <Card />
-      </CardWrapper>
+      {cards?.map((card, index) => (
+        <CardWrapper key={index}>
+          <Card item={card} />
+        </CardWrapper>
+      ))}
     </CardsContainer>
   );
 };

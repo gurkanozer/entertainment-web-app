@@ -1,7 +1,14 @@
 import React from "react";
+import { Title } from "./style";
+import { Cards } from "../../components";
 
 const Movies = () => {
-  return <div>Movies</div>;
+  return (
+    <>
+      <Title>Movies</Title>
+      <Cards />
+    </>
+  );
 };
 
 export default Movies;

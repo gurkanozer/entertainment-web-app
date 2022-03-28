@@ -19,6 +19,7 @@ export const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 999;
   @media (min-width: ${({ theme }) => theme.screenSize.sm}) {
     top: 1.438rem;
     width: calc(100% - 3rem);

@@ -12,38 +12,46 @@ import {
   PlayButton,
   PlayIcon,
   PlayButtonInner,
+  BookmarkIcon,
 } from "./style";
-import TestImage from "../../assets/thumbnails/112/regular/small.jpg";
 import MovieImg from "../../assets/icon-category-movie.svg";
 import PlayImg from "../../assets/icon-play.svg";
-// import TvSeriesImg from '../../assets/icon-category-tv.svg';
-
-const index = () => {
-  const id = 1;
+import TvSeriesImg from "../../assets/icon-category-tv.svg";
+import BookmarkedEmpty from "../../assets/icon-bookmark-empty.svg";
+// import BookmarkedFull from "../../assets/icon-bookmark-full.svg";
+const index = ({ item }) => {
   const handleOnClick = () => {
     console.log("Wow");
   };
   return (
     <CardContainer>
       <ImageContainer>
-        <Image src={TestImage} />
-        <PlayButton id={id} onClick={handleOnClick}>
+        <Image src={item.thumbnail.regular.medium} />
+        <PlayButton
+          aria-label={item.title}
+          id={item._id}
+          onClick={handleOnClick}
+        >
           <PlayButtonInner>
             <PlayIcon src={PlayImg} /> Play
           </PlayButtonInner>
         </PlayButton>
       </ImageContainer>
-      <BookmarkButton />
+      <BookmarkButton>
+        <BookmarkIcon src={BookmarkedEmpty} />
+      </BookmarkButton>
       <Detail>
         <List>
-          <ListItem>2019</ListItem>
+          <ListItem>{item.year}</ListItem>
           <ListItem>
-            <IconImage src={MovieImg} />
-            Movie
+            <IconImage
+              src={item.category === "Movie" ? MovieImg : TvSeriesImg}
+            />
+            {item.category}
           </ListItem>
-          <ListItem>E</ListItem>
+          <ListItem>{item.rating}</ListItem>
         </List>
-        <Title htmlFor={id}>The Great Lands</Title>
+        <Title htmlFor={item._id}>{item.title}</Title>
       </Detail>
     </CardContainer>
   );

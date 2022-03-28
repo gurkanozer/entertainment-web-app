@@ -62,6 +62,11 @@ export const SliderCard = styled.div`
     height: 14.375rem;
   }
 `;
+export const SliderImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 export const SlideImageContainer = styled.div`
   border-radius: 8px;
   overflow: hidden;
@@ -74,13 +79,12 @@ export const SlideImageContainer = styled.div`
     ${PlayButton} {
       opacity: 1;
     }
+    ${SliderImage} {
+      transform: scale(1.05);
+    }
   }
 `;
-export const SliderImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
+
 //Detail
 export const Detail = styled.div`
   position: absolute;
@@ -138,6 +142,8 @@ export const BookmarkButton = styled.button`
   background: rgba(0, 0, 0, 0.5);
   width: 2rem;
   height: 2rem;
+  display: grid;
+  place-items: center;
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -146,4 +152,10 @@ export const BookmarkButton = styled.button`
     top: 1rem;
     right: 1rem;
   }
+`;
+
+export const BookmarkIcon = styled.img`
+  width: 0.8rem;
+  height: 0.8rem;
+  object-fit: cover;
 `;
