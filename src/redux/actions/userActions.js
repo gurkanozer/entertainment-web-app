@@ -73,13 +73,15 @@ export const logout = () => async (dispatch) => {
 };
 
 export const toggleBookmark = (bookmarked) => async (dispatch) => {
-  console.log(bookmarked);
-  // try {
-  //   const res = await API.bookmark(bookmarked);
-  //   if (res.status === 201) {
-  //     dispatch({ type: USER_UPDATED, payload: res.data });
-  //   }
-  // } catch (err) {
-  //   console.log(err);
-  // }
+  try {
+    const res = await API.bookmark({ bookmarked });
+    if (res.status === 201) {
+      dispatch({
+        type: USER_UPDATED,
+        payload: res.data,
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
 };

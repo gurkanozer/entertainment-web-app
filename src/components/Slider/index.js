@@ -1,4 +1,7 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import useBookmarked from "../../hooks/useBookmarked";
+import { toggleBookmark } from "../../redux/actions/userActions";
 import {
   SliderContainer,
   SliderCard,
@@ -18,15 +21,22 @@ import {
 import MovieImg from "../../assets/icon-category-movie.svg";
 import TvSeriesImg from "../../assets/icon-category-tv.svg";
 import BookmarkedEmpty from "../../assets/icon-bookmark-empty.svg";
-// import BookmarkedFull from "../../assets/icon-bookmark-full.svg";
+import BookmarkedFull from "../../assets/icon-bookmark-full.svg";
 import PlayImg from "../../assets/icon-play.svg";
-
 //SWIPER
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 
 const Slider = ({ items }) => {
+  const dispatch = useDispatch();
+  const { isBooked, updateBookmark } = useBookmarked();
+
+  const handlePlayVideo = () => {
+    console.log("Maybe later...");
+  };
+  const handleBookmark = (item) => {
+    dispatch(toggleBookmark(updateBookmark(item)));
+  };
   return (
     <SliderContainer>
       <Swiper slidesPerView={"auto"} spaceBetween={16} className="mySwiper">
@@ -41,8 +51,10 @@ const Slider = ({ items }) => {
                   </PlayButtonInner>
                 </PlayButton>
               </SlideImageContainer>
-              <BookmarkButton>
-                <BookmarkIcon src={BookmarkedEmpty} />
+              <BookmarkButton onClick={() => handleBookmark(item)}>
+                <BookmarkIcon
+                  src={isBooked(item._id) ? BookmarkedFull : BookmarkedEmpty}
+                />
               </BookmarkButton>
               <Detail>
                 <List>

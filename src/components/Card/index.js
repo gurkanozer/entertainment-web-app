@@ -1,5 +1,6 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import useBookmarked from "../../hooks/useBookmarked";
 import { toggleBookmark } from "../../redux/actions/userActions";
 import {
   CardContainer,
@@ -20,15 +21,16 @@ import MovieImg from "../../assets/icon-category-movie.svg";
 import PlayImg from "../../assets/icon-play.svg";
 import TvSeriesImg from "../../assets/icon-category-tv.svg";
 import BookmarkedEmpty from "../../assets/icon-bookmark-empty.svg";
-// import BookmarkedFull from "../../assets/icon-bookmark-full.svg";
+import BookmarkedFull from "../../assets/icon-bookmark-full.svg";
 const Card = ({ item }) => {
   const dispatch = useDispatch();
-  const bookmarked = useSelector((state) => state.auth.bookmarked);
+  const { isBooked, updateBookmark } = useBookmarked();
+
   const handlePlayVideo = () => {
     console.log("Maybe later...");
   };
   const handleBookmark = () => {
-    console.log(bookmarked);
+    dispatch(toggleBookmark(updateBookmark(item)));
   };
   return (
     <CardContainer>
@@ -45,7 +47,9 @@ const Card = ({ item }) => {
         </PlayButton>
       </ImageContainer>
       <BookmarkButton onClick={handleBookmark}>
-        <BookmarkIcon src={BookmarkedEmpty} />
+        <BookmarkIcon
+          src={isBooked(item._id) ? BookmarkedFull : BookmarkedEmpty}
+        />
       </BookmarkButton>
       <Detail>
         <List>
