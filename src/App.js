@@ -1,9 +1,13 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { isAuth } from "./redux/actions/userActions";
+
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./globalStyle";
-import { Main } from "./components";
 
+import { Main, Auth } from "./components";
 import { Home, Movies, TvSeries, Bookmarked, Login, Register } from "./pages";
 
 const theme = {
@@ -28,18 +32,27 @@ const theme = {
 };
 
 const App = () => {
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    dispatch(isAuth());
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Register />} />
-        <Route path="/" element={<Main />}>
+        <Route path="/" element={<Auth auth={auth} />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
+        </Route>
+        <Route path="/" element={<Main auth={auth} />}>
           <Route index element={<Home />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/tvseries" element={<TvSeries />} />
           <Route path="/bookmarked" element={<Bookmarked />} />
         </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </ThemeProvider>
   );

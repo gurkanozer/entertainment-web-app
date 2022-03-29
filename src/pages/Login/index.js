@@ -10,7 +10,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const [isButtonActive, setIsButtonActive] = useState(true);
   const [loginData, setLoginData] = useState({});
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.auth.user);
   const navigate = useNavigate();
 
   const handleSubmit = () => {

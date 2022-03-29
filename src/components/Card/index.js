@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleBookmark } from "../../redux/actions/userActions";
 import {
   CardContainer,
   ImageContainer,
@@ -19,9 +21,14 @@ import PlayImg from "../../assets/icon-play.svg";
 import TvSeriesImg from "../../assets/icon-category-tv.svg";
 import BookmarkedEmpty from "../../assets/icon-bookmark-empty.svg";
 // import BookmarkedFull from "../../assets/icon-bookmark-full.svg";
-const index = ({ item }) => {
-  const handleOnClick = () => {
-    console.log("Wow");
+const Card = ({ item }) => {
+  const dispatch = useDispatch();
+  const bookmarked = useSelector((state) => state.auth.bookmarked);
+  const handlePlayVideo = () => {
+    console.log("Maybe later...");
+  };
+  const handleBookmark = () => {
+    console.log(bookmarked);
   };
   return (
     <CardContainer>
@@ -30,14 +37,14 @@ const index = ({ item }) => {
         <PlayButton
           aria-label={item.title}
           id={item._id}
-          onClick={handleOnClick}
+          onClick={handlePlayVideo}
         >
           <PlayButtonInner>
             <PlayIcon src={PlayImg} /> Play
           </PlayButtonInner>
         </PlayButton>
       </ImageContainer>
-      <BookmarkButton>
+      <BookmarkButton onClick={handleBookmark}>
         <BookmarkIcon src={BookmarkedEmpty} />
       </BookmarkButton>
       <Detail>
@@ -57,4 +64,4 @@ const index = ({ item }) => {
   );
 };
 
-export default index;
+export default Card;

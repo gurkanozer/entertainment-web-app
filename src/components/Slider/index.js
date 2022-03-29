@@ -34,8 +34,8 @@ const Slider = ({ items }) => {
           <SwiperSlide key={index}>
             <SliderCard>
               <SlideImageContainer>
-                <SliderImage src={item.thumbnail.trending.large} />
-                <PlayButton aria-label={item.title} id={index}>
+                <SliderImage src={item?.thumbnail.trending.large} />
+                <PlayButton aria-label={item?.title} id={index}>
                   <PlayButtonInner>
                     <PlayIcon src={PlayImg} /> Play
                   </PlayButtonInner>
@@ -46,16 +46,16 @@ const Slider = ({ items }) => {
               </BookmarkButton>
               <Detail>
                 <List>
-                  <ListItem>{item.year}</ListItem>
+                  <ListItem>{item?.year}</ListItem>
                   <ListItem>
                     <IconImage
-                      src={item.category === "Movie" ? MovieImg : TvSeriesImg}
+                      src={item?.category === "Movie" ? MovieImg : TvSeriesImg}
                     />
-                    {item.category}
+                    {item?.category}
                   </ListItem>
-                  <ListItem>{item.rating}</ListItem>
+                  <ListItem>{item?.rating}</ListItem>
                 </List>
-                <Title htmlFor={item._id}>{item.title}</Title>
+                <Title htmlFor={item?._id}>{item?.title}</Title>
               </Detail>
             </SliderCard>
           </SwiperSlide>

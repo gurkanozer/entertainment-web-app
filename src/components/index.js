@@ -6,3 +6,4 @@ export { default as Main } from "./Main";
 export { default as Button } from "./Button";
 export { default as Form } from "./Form";
 export { default as TextInput } from "./TextInput";
+export { default as Auth } from "./Auth";

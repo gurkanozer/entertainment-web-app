@@ -1,10 +1,15 @@
 const initialStates = {
   movies: [],
   filteredMovies: [],
-  bookmarkedMovies: [],
   // trendingMovies: [],
   // moviesOnly:[],
   // tvSeriesOnly:[],
-  user: localStorage.getItem("user_profile") || {},
+  auth: {
+    token: localStorage.getItem("user_token"),
+    isAuthenticated: true,
+    user: null,
+    isLoading: true,
+    bookmarked: [],
+  },
 };
 export default initialStates;

@@ -2,13 +2,16 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { MainContainer } from "./style";
 import { Searchbox, Navbar } from "../";
-const Main = () => {
+const Main = ({ auth }) => {
+  if (auth?.user?.isLoading) return <div></div>;
   return (
-    <MainContainer>
+    <>
       <Navbar />
-      <Searchbox />
-      <Outlet />
-    </MainContainer>
+      <MainContainer>
+        <Searchbox />
+        <Outlet />
+      </MainContainer>
+    </>
   );
 };
 

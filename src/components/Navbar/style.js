@@ -77,21 +77,25 @@ const NavLink = styled(Link)`
 `;
 export const HomeLink = styled(NavLink)`
   mask: url(${HomeIcon}) no-repeat center center;
-  mask-size: cover;
+  mask-size: contain;
 `;
 export const BookmarkLink = styled(NavLink)`
   mask: url(${BookmarkIcon}) no-repeat center center;
-  mask-size: cover;
+  mask-size: contain;
 `;
 export const MoviesLink = styled(NavLink)`
   mask: url(${MoviesIcon}) no-repeat center center;
-  mask-size: cover;
+  mask-size: contain;
 `;
 export const TvSeriesLink = styled(NavLink)`
   mask: url(${TvSeriesIcon}) no-repeat center center;
-  mask-size: cover;
+  mask-size: contain;
 `;
-export const ProfileLink = styled(Link)`
+export const UserActions = styled.div`
+  position: relative;
+  width: auto;
+`;
+export const ProfileButton = styled.button`
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 100%;
@@ -107,4 +111,45 @@ export const ProfileLink = styled(Link)`
 `;
 export const ProfileIcon = styled(RiUser4Line)`
   color: inherit;
+`;
+export const UserLinkItem = styled.li`
+  padding: 0 0 0.5rem;
+`;
+export const UserLink = styled(Link)`
+  color: ${({ theme }) => theme.color.semiDarkBlue};
+  font-size: 1rem;
+  font-weight: ${({ theme }) => theme.fw.medium};
+`;
+export const LogoutButton = styled.button`
+  padding: 1rem;
+  color: ${({ theme }) => theme.color.white};
+  font-size: 0.9rem;
+  font-weight: ${({ theme }) => theme.fw.medium};
+`;
+
+export const UserLinks = styled.ul`
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  bottom: -16px;
+  right: 0;
+  left: auto;
+  transform: translateX(0) translateY(100%);
+  background-color: ${({ theme }) => theme.color.grayishBlue};
+  border-radius: 6px;
+  padding: ${({ isvisible }) => (isvisible ? "0.5rem" : 0)};
+  opacity: ${({ isvisible }) => (isvisible ? 1 : 0)};
+  ${LogoutButton} {
+    display: ${({ isvisible }) => (isvisible ? "block" : "none")};
+  }
+  @media (min-width: ${({ theme }) => theme.screenSize.lg}) {
+    transform: translateX(-50%) translateY(-100%);
+    top: -16px;
+    left: 50%;
+    bottom: auto;
+    right: auto;
+  }
 `;

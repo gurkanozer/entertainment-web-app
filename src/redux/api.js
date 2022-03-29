@@ -5,7 +5,7 @@ const API = axios.create({
 });
 
 API.interceptors.request.use((req) => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("user_token");
   if (token) {
     req.headers.Authorization = `Bearer ${token}`;
   }
@@ -22,4 +22,11 @@ export const login = (data) => {
 
 export const register = (data) => {
   return API.post("/register", data);
+};
+
+export const isAuth = (data) => {
+  return API.post("/isauth", data);
+};
+export const bookmark = (data) => {
+  return API.post("/u/bookmark", data);
 };
