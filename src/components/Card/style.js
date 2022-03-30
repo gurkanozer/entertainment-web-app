@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
-export const CardContainer = styled.div`
+import { motion } from "framer-motion";
+export const CardContainer = styled(motion.div)`
   overflow: hidden;
   display: flex;
   flex-direction: column;

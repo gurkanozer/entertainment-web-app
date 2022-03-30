@@ -12,7 +12,7 @@ const Main = ({ auth }) => {
   return (
     <>
       <Navbar />
-      <MainContainer>
+      <MainContainer layout>
         <Searchbox onChange={handleOnChange} />
         <Outlet context={[keyWord, setKeyWord]} />
       </MainContainer>

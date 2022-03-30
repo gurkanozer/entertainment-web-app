@@ -42,7 +42,11 @@ const Slider = ({ items }) => {
       <Swiper slidesPerView={"auto"} spaceBetween={16} className="mySwiper">
         {items.map((item, index) => (
           <SwiperSlide key={index}>
-            <SliderCard>
+            <SliderCard
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
               <SlideImageContainer>
                 <SliderImage src={item?.thumbnail.trending.large} />
                 <PlayButton

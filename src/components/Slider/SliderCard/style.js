@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { motion } from "framer-motion";
 // Button
 export const PlayButtonInner = styled.div`
   background: rgba(255, 255, 255, 0.216);

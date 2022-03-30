@@ -33,7 +33,11 @@ const Card = ({ item }) => {
     dispatch(toggleBookmark(updateBookmark(item)));
   };
   return (
-    <CardContainer>
+    <CardContainer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <ImageContainer>
         <Image src={item.thumbnail.regular.medium} />
         <PlayButton

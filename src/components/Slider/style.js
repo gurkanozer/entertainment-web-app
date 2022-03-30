@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const SliderContainer = styled.div`
   width: 100%;
@@ -54,7 +55,7 @@ export const PlayButton = styled.button`
   z-index: 1;
 `;
 
-export const SliderCard = styled.div`
+export const SliderCard = styled(motion.div)`
   width: 15rem;
   height: 8.75rem;
   @media (min-width: ${({ theme }) => theme.screenSize.sm}) {
