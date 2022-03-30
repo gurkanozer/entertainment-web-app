@@ -11,7 +11,7 @@ What packages did i used?
 I used expressjs and mongodb for backend.
 
 Backend API:
-  api/movies returns array of movie objects.
-    movie:{ title, thumbnail, year, category, rating, istrending }
-  api/login returns an auth object.
-    auth:{ token, isAuthenticated, user, isLoading, bookmarked }
+- api/movies returns array of movie objects.
+-- movie:{ title, thumbnail, year, category, rating, istrending }
+- api/login returns an auth object.
+-- auth:{ token, isAuthenticated, user, isLoading, bookmarked }
