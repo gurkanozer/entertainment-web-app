@@ -5,7 +5,8 @@ export const Input = styled.input`
   background: none;
   border: none;
   color: ${({ theme }) => theme.color.white};
-  border-bottom: 1px solid ${({ theme }) => theme.color.grayishBlue};
+  border-bottom: 1px solid
+    ${({ theme, error }) => (error ? theme.color.red : theme.color.grayishBlue)};
   height: 37px;
   font-size: 15px;
   margin-bottom: 1.5rem;
@@ -13,10 +14,15 @@ export const Input = styled.input`
   outline: none;
   caret-color: ${({ theme }) => theme.color.red};
   &:focus {
-    border-bottom: 1px solid ${({ theme }) => theme.color.white};
+    ${({ theme, error }) => (error ? theme.color.red : theme.color.white)};
   }
   @media (min-width: ${({ theme }) => theme.screenSize.sm}) {
     height: 48px;
+  }
+  &::placeholder {
+    color: ${({ theme, error }) =>
+      error ? theme.color.red : theme.color.grayishBlue};
+    opacity: 0.8;
   }
 `;
 

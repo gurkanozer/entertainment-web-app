@@ -9,6 +9,7 @@ import {
   AUTH_FAILED,
   LOGOUT,
   USER_UPDATED,
+  ADD_MESSAGE,
 } from "../actionTypes";
 import * as API from "../api";
 
@@ -24,13 +25,17 @@ export const login = (data) => async (dispatch) => {
     if (err.response.status === 500) {
       console.log("error: ", err.response.data);
     } else if (err.response.status === 400) {
-      console.log(err.response.data);
+      const errorMessage = {
+        type: "login_error",
+        message: err.response.data.data,
+      };
+      dispatch({ type: ADD_MESSAGE, payload: errorMessage });
     }
     dispatch({ type: LOGIN_FAILED });
   }
 };
 
-export const register = (data) => async (dispatch) => {
+export const signUp = (data) => async (dispatch) => {
   try {
     dispatch({ type: USER_LOADING });
     const res = await API.register(data);
@@ -42,9 +47,19 @@ export const register = (data) => async (dispatch) => {
     dispatch({ type: CREATE_USER_FAILED });
     if (err.response.status === 400) {
       console.log(err.response.data);
+      const errorMessage = {
+        type: "register_error",
+        message: err.response.data.message,
+      };
+      dispatch({ type: ADD_MESSAGE, payload: errorMessage });
     } else if (err.response.status === 412) {
       let data = err.response.data;
       console.log(data.message);
+      const errorMessage = {
+        type: "register_error",
+        message: err.response.data.message,
+      };
+      dispatch({ type: ADD_MESSAGE, payload: errorMessage });
     }
   }
 };

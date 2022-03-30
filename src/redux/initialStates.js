@@ -1,6 +1,7 @@
 const initialStates = {
   movies: [],
   filteredMovies: [],
+  systemMessages: [],
   auth: {
     token: localStorage.getItem("user_token"),
     isAuthenticated: true,

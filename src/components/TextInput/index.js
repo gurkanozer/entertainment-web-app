@@ -7,6 +7,8 @@ const TextInput = ({
   name,
   placeholder,
   onChange,
+  register,
+  error,
   type = "text",
 }) => {
   return (
@@ -17,6 +19,8 @@ const TextInput = ({
         type={type}
         name={name}
         placeholder={placeholder}
+        {...register(name)}
+        error={error ? true : false}
       />
       <Label htmlFor={id}>{label}</Label>
     </InputContainer>
