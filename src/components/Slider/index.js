@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import useBookmarked from "../../hooks/useBookmarked";
+import { useBookmarked } from "../../hooks";
 import { toggleBookmark } from "../../redux/actions/userActions";
 import {
   SliderContainer,
@@ -45,7 +45,11 @@ const Slider = ({ items }) => {
             <SliderCard>
               <SlideImageContainer>
                 <SliderImage src={item?.thumbnail.trending.large} />
-                <PlayButton aria-label={item?.title} id={index}>
+                <PlayButton
+                  aria-label={item?.title}
+                  id={index}
+                  onClick={handlePlayVideo}
+                >
                   <PlayButtonInner>
                     <PlayIcon src={PlayImg} /> Play
                   </PlayButtonInner>

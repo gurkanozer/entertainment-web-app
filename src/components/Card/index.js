@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import useBookmarked from "../../hooks/useBookmarked";
+import { useBookmarked } from "../../hooks";
 import { toggleBookmark } from "../../redux/actions/userActions";
 import {
   CardContainer,

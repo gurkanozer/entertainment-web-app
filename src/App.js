@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { getMovies } from "./redux/actions/moviesActions";
 
 import { isAuth } from "./redux/actions/userActions";
 
@@ -37,7 +38,10 @@ const App = () => {
 
   useEffect(() => {
     dispatch(isAuth());
-  }, []);
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(getMovies());
+  }, [dispatch]);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />

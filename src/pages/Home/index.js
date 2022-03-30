@@ -1,23 +1,29 @@
 import React, { useEffect } from "react";
+import { setFilteredMovies } from "../../redux/actions/filteredMoviesActions";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovies } from "../../redux/actions/moviesActions";
-
+import { useOutletContext } from "react-router-dom";
 import { Title } from "./style";
 import { Cards, Slider } from "../../components";
 
 const Home = () => {
-  const movies = useSelector((state) => state.movies);
   const dispatch = useDispatch();
+  const filteredMovies = useSelector((state) => state.filteredMovies);
+  const movies = useSelector((state) => state.movies);
+  const [keyWord] = useOutletContext();
 
   useEffect(() => {
-    dispatch(getMovies());
-  }, []);
+    dispatch(setFilteredMovies("all", keyWord, movies));
+  }, [dispatch, movies, keyWord]);
   return (
     <>
-      <Title>Trending</Title>
-      <Slider items={movies.filter((m) => m.isTrending)} />
+      {keyWord.trim() === "" && (
+        <>
+          <Title>Trending</Title>
+          <Slider items={filteredMovies.filter((m) => m.isTrending)} />
+        </>
+      )}
       <Title>Recommended for you</Title>
-      <Cards cards={movies}></Cards>
+      <Cards cards={filteredMovies}></Cards>
     </>
   );
 };
