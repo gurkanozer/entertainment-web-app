@@ -15,3 +15,5 @@ Backend API:
 -- movie:{ title, thumbnail, year, category, rating, istrending }
 - api/login returns an auth object.
 -- auth:{ token, isAuthenticated, user, isLoading, bookmarked }
+- api/signup returns an auth object.
+-- auth:{ token, isAuthenticated, user, isLoading, bookmarked }
