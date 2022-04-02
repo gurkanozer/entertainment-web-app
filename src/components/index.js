@@ -8,3 +8,4 @@ export { default as Form } from "./Form";
 export { default as TextInput } from "./TextInput";
 export { default as Auth } from "./Auth";
 export { default as Alert } from "./Alert";
+export { default as Loading } from "./Loading";

@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilteredMovies } from "../../redux/actions/filteredMoviesActions";
 import { Title } from "./style";
-import { Cards } from "../../components";
+import { Cards, Loading } from "../../components";
 
 const Bookmarked = () => {
   const dispatch = useDispatch();
@@ -40,13 +40,13 @@ const Bookmarked = () => {
       {movies.length > 0 && (
         <>
           <Title>Bookmarked Movies</Title>
-          <Cards cards={movies} />
+          {movies.length === 0 ? <Loading /> : <Cards cards={movies} />}
         </>
       )}
       {tvSeries.length > 0 && (
         <>
           <Title>Bookmarked Tv Series</Title>
-          <Cards cards={tvSeries} />
+          {tvSeries.length === 0 ? <Loading /> : <Cards cards={tvSeries} />}
         </>
       )}
     </>

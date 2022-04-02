@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useBookmarked } from "../../hooks";
+import { useBookmarked, useWindowDimensions } from "../../hooks";
 import { toggleBookmark } from "../../redux/actions/userActions";
 import {
   SliderContainer,
@@ -30,16 +30,24 @@ import "swiper/css";
 const Slider = ({ items }) => {
   const dispatch = useDispatch();
   const { isBooked, updateBookmark } = useBookmarked();
-
+  const { width } = useWindowDimensions();
+  const [padding, setPadding] = useState(16);
   const handlePlayVideo = () => {
     console.log("Maybe later...");
   };
   const handleBookmark = (item) => {
     dispatch(toggleBookmark(updateBookmark(item)));
   };
+  useEffect(() => {
+    if (width > 992) setPadding(40);
+  }, [width]);
   return (
     <SliderContainer>
-      <Swiper slidesPerView={"auto"} spaceBetween={16} className="mySwiper">
+      <Swiper
+        slidesPerView={"auto"}
+        spaceBetween={padding}
+        className="mySwiper"
+      >
         {items.map((item, index) => (
           <SwiperSlide key={index}>
             <SliderCard

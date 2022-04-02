@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setFilteredMovies } from "../../redux/actions/filteredMoviesActions";
 import { useOutletContext } from "react-router-dom";
 import { Title } from "./style";
-import { Cards } from "../../components";
+import { Cards, Loading } from "../../components";
 
 const Movies = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,11 @@ const Movies = () => {
   return (
     <>
       <Title>Movies</Title>
-      <Cards cards={filteredMovies} />
+      {filteredMovies.length === 0 ? (
+        <Loading />
+      ) : (
+        <Cards cards={filteredMovies}></Cards>
+      )}
     </>
   );
 };
