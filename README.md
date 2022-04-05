@@ -1,6 +1,7 @@
 # Entertainment Web App Project
 
-What packages did i used?
+What packages did i use?
+
 - Styled components for styling
 - Redux for state management
 - react-hooks-form and yup for form validations
